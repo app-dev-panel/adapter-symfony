@@ -1,0 +1,91 @@
+{
+    "name": "app-dev-panel/adapter-symfony",
+    "type": "symfony-bundle",
+    "description": "Symfony framework adapter for ADP — auto-wires debug collectors, proxies, and inspector into Symfony applications",
+    "keywords": [
+        "debug",
+        "debug-panel",
+        "debugger",
+        "debugbar",
+        "profiler",
+        "symfony",
+        "symfony-bundle",
+        "symfony-debug",
+        "symfony-profiler",
+        "web-profiler",
+        "inspector",
+        "monitoring",
+        "observability",
+        "tracing",
+        "logging",
+        "performance",
+        "apm",
+        "ai",
+        "llm",
+        "ai-debugging",
+        "developer-tools",
+        "devtools",
+        "app-dev-panel",
+        "adp",
+        "application-development-panel",
+        "development-server"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "app-dev-panel/api": "^1.0",
+        "app-dev-panel/kernel": "^1.0",
+        "app-dev-panel/cli": "^1.0",
+        "guzzlehttp/guzzle": "^7.5",
+        "guzzlehttp/psr7": "^2.4",
+        "nyholm/psr7": "^1.8",
+        "nyholm/psr7-server": "^1.0",
+        "psr/container": "^2.0",
+        "psr/event-dispatcher": "^1.0",
+        "psr/http-client": "^1.0",
+        "psr/http-message": "^1.0|^2.0",
+        "psr/log": "^3.0",
+        "symfony/config": "^6.4|^7.0|^8.0",
+        "symfony/dependency-injection": "^6.4|^7.0|^8.0",
+        "symfony/event-dispatcher": "^6.4|^7.0|^8.0",
+        "symfony/http-kernel": "^6.4|^7.0|^8.0",
+        "symfony/console": "^6.4|^7.0|^8.0",
+        "symfony/mime": "^6.4|^7.0|^8.0",
+        "symfony/var-dumper": "^6.4|^7.0|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "symfony/framework-bundle": "^6.4|^7.0|^8.0",
+        "symfony/http-client": "^6.4|^7.0|^8.0",
+        "doctrine/dbal": "^3.0|^4.0",
+        "doctrine/orm": "^2.0|^3.0",
+        "twig/twig": "^3.0|^4.0"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../Kernel"
+        },
+        {
+            "type": "path",
+            "url": "../../API"
+        },
+        {
+            "type": "path",
+            "url": "../../Cli"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AppDevPanel\\Adapter\\Symfony\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AppDevPanel\\Adapter\\Symfony\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
