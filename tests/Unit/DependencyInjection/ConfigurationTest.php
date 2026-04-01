@@ -31,10 +31,14 @@ final class ConfigurationTest extends TestCase
         // Default ignored patterns
         $this->assertContains('/_wdt/**', $config['ignored_requests']);
         $this->assertContains('/_profiler/**', $config['ignored_requests']);
-        $this->assertContains('/debug/api/**', $config['ignored_requests']);
+        $this->assertContains('/debug/**', $config['ignored_requests']);
+        $this->assertContains('/inspect/**', $config['ignored_requests']);
         $this->assertContains('completion', $config['ignored_commands']);
 
         $this->assertSame([], $config['dumper']['excluded_classes']);
+
+        // Panel defaults
+        $this->assertSame('', $config['panel']['static_url']);
     }
 
     public function testDisabled(): void
@@ -102,6 +106,25 @@ final class ConfigurationTest extends TestCase
         ]);
 
         $this->assertSame(['App\\HeavyObject', 'App\\CircularRef'], $config['dumper']['excluded_classes']);
+    }
+
+    public function testPanelDefaults(): void
+    {
+        $config = $this->processConfiguration([]);
+
+        $this->assertArrayHasKey('panel', $config);
+        $this->assertSame('', $config['panel']['static_url']);
+    }
+
+    public function testPanelCustomStaticUrl(): void
+    {
+        $config = $this->processConfiguration([
+            [
+                'panel' => ['static_url' => '/bundles/appdevpanel'],
+            ],
+        ]);
+
+        $this->assertSame('/bundles/appdevpanel', $config['panel']['static_url']);
     }
 
     private function processConfiguration(array $configs): array
